@@ -1,0 +1,10 @@
+{
+    "name": "projeto/galeria-de-fotos",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Projeto\\GaleriaDeFotos\\": "src/"
+        }
+    },
+    "require": {}
+}
