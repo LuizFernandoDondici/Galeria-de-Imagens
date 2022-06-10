@@ -2,4 +2,8 @@
 
 require __DIR__ . '../../vendor/autoload.php';
 
-echo 'teste';
+use Projeto\GaleriaDeFotos\Route\Route;
+
+$route = new Route();
+
+$route->setRoute($_SERVER['PATH_INFO'] == '/galeria');
