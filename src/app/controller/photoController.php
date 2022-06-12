@@ -2,6 +2,8 @@
 
 namespace Projeto\GaleriaDeFotos\App\Controller;
 
+use Projeto\GaleriaDeFotos\App\Config\Connect;
+
 class PhotoController
 {
 
@@ -17,6 +19,8 @@ class PhotoController
     public static function savePhoto():void
     {
 
+        Connect::createConnection();
+        exit;
         var_dump($_FILES);
 
         $uploaddir = $_ENV['DIR_IMG'];
