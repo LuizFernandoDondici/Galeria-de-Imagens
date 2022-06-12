@@ -9,9 +9,15 @@ class Route
 
     public function setRoute($path):void
     {
+        
         if ($path == '/galeria') {
             PhotoController::galeria();
         }
+
+        if ($path == '/salvar-foto') {
+            PhotoController::savePhoto();
+        }
+
     }
 
 }
