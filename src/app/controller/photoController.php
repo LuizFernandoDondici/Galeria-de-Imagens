@@ -2,7 +2,8 @@
 
 namespace Projeto\GaleriaDeFotos\App\Controller;
 
-use Projeto\GaleriaDeFotos\App\Config\Connect;
+use Projeto\GaleriaDeFotos\App\Model\PhotoModal\Photo;
+use Projeto\GaleriaDeFotos\App\Model\PhotoModal\PhotoDAO;
 
 class PhotoController
 {
@@ -11,22 +12,26 @@ class PhotoController
     {
     }
 
+
     public static function galeria():void
     {
         require __DIR__ . '../../../public/view/body/galeria.php';
     }
 
+
     public static function savePhoto():void
     {
 
-        Connect::createConnection();
-        exit;
-        var_dump($_FILES);
+        $dir = $_ENV['DIR_IMG'];
+        $file = $dir . basename($_FILES['img']['name']);
 
-        $uploaddir = $_ENV['DIR_IMG'];
-        $uploadfile = $uploaddir . basename($_FILES['img']['name']);
+        $photo = new Photo(null, $file);
 
-        move_uploaded_file($_FILES['img']['tmp_name'], $uploadfile); 
+        $photoDAO = new PhotoDAO();
+        $photoDAO->savePathImg($photo);
+
+        move_uploaded_file($_FILES['img']['tmp_name'], $file); 
         
     }
+
 }

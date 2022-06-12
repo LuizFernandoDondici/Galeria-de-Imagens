@@ -1,6 +1,6 @@
 <?php
 
-namespace Projeto\GaleriaDeFotos\App\Modal\photoModal;
+namespace Projeto\GaleriaDeFotos\App\Model\PhotoModal;
 
 class Photo
 {
@@ -39,5 +39,5 @@ class Photo
 
         return $this;
     }
-    
+
 }
