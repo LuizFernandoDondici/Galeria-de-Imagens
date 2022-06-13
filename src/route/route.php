@@ -16,6 +16,10 @@ class Route
             UserController::login();
         }
         
+        if ($path == '/salvar-acesso') {
+            UserController::saveUser();
+        }
+
         if ($path == '/galeria') {
             PhotoController::galeria();
         }

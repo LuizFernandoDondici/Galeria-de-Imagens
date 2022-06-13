@@ -6,16 +6,16 @@
 
             <div>
                 <form action="" method="POST">
-                    <input type="text" placeholder="E-mail">
-                    <input type="text" placeholder="Senha">
+                    <input type="text" name="email" placeholder="E-mail">
+                    <input type="text" name="pass" placeholder="Senha">
                     <button> Logar </button>
                 </form>
             </div>
 
             <div>
-                <form action="" method="POST">
-                    <input type="text" placeholder="E-mail">
-                    <input type="text" placeholder="Senha">
+                <form action="/salvar-acesso" method="POST">
+                    <input type="text" name="email" placeholder="E-mail">
+                    <input type="text" name="pass" placeholder="Senha">
                     <button> Cadastrar </button>
                 </form>
             </div>
