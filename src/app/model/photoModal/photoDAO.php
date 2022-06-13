@@ -37,7 +37,7 @@ class PhotoDAO
     {
         try {
             
-            $selectQuery = 'SELECT name_img FROM galeria;';
+            $selectQuery = 'SELECT * FROM galeria;';
 
             $stmt = $this->conn->prepare($selectQuery);
             $stmt->execute();
@@ -48,6 +48,43 @@ class PhotoDAO
 
         } catch (\Throwable $th) {
             echo 'erro select';
+        }
+    }
+
+
+    public function findPathImgById($id):array
+    {
+        try {
+            
+            $selectQuery = 'SELECT * FROM galeria WHERE id_img = ?;';
+
+            $stmt = $this->conn->prepare($selectQuery);
+
+            $stmt->bindParam(1, $id);
+            $stmt->execute();
+
+            $photo = $stmt->fetch(); 
+
+            return $photo;
+
+        } catch (\Throwable $th) {
+            echo 'erro select';
+        }
+    }
+
+    public function deletePathImg(Photo $photo):bool
+    {
+        try {
+            
+            $deleteQuery = 'DELETE FROM galeria WHERE id_img = ?';
+
+            $stmt = $this->conn->prepare($deleteQuery);
+            $stmt->bindParam(1, $photo->getId());
+
+            return $stmt->execute();
+
+        } catch (\Throwable $th) {
+            echo 'erro delete';
         }
     }
 

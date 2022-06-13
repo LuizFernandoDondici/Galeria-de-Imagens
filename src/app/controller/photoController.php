@@ -41,4 +41,21 @@ class PhotoController
         
     }
 
+
+    public static function deletePhoto():void
+    {
+
+        $id = $_GET['id'];
+
+        $photoDAO = new PhotoDAO();
+        $p = $photoDAO->findPathImgById($id);
+
+        $photo = new Photo($p["id_img"], $p["path_img"], $p["name_img"]);
+
+        $photoDAO->deletePathImg($photo);
+
+        unlink($photo->getPath());
+
+    }
+
 }

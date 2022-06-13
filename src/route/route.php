@@ -18,6 +18,10 @@ class Route
             PhotoController::savePhoto();
         }
 
+        if ($path == '/deletar-foto') {
+            PhotoController::deletePhoto();
+        }
+
     }
 
 }
