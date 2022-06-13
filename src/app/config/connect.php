@@ -13,14 +13,22 @@ class Connect
             
             $pdo = new PDO('sqlite:' . __DIR__ . '../../database/galeria-fotos.sqlite');
 
-            $query = 
+            $queryGaleria = 
                 'CREATE TABLE IF NOT EXISTS galeria(
                     id_img INTEGER PRIMARY KEY,
                     path_img TEXT,
                     name_img TEXT
-            );';
+                );';
+
+            $queryLogin = 
+                'CREATE TABLE IF NOT EXISTS login(
+                    id_login INTEGER PRIMARY KEY,
+                    email_login TEXT,
+                    pass_login TEXT
+                );';
             
-            $pdo->exec($query);
+            $pdo->exec($queryGaleria);
+            $pdo->exec($queryLogin);
 
             return $pdo;
 
