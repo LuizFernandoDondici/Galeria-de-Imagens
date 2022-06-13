@@ -15,17 +15,24 @@ class PhotoController
 
     public static function galeria():void
     {
+
+        $photoDAO = new PhotoDAO();
+        
+        $photos = $photoDAO->findPathImg();
+
         require __DIR__ . '../../../public/view/body/galeria.php';
+
     }
 
 
     public static function savePhoto():void
     {
 
+        $name = $_FILES['img']['name'];
         $dir = $_ENV['DIR_IMG'];
-        $file = $dir . basename($_FILES['img']['name']);
+        $file = $dir . $name;
 
-        $photo = new Photo(null, $file);
+        $photo = new Photo(null, $file, $name);
 
         $photoDAO = new PhotoDAO();
         $photoDAO->savePathImg($photo);

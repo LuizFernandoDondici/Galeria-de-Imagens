@@ -15,8 +15,9 @@ class Connect
 
             $query = 
                 'CREATE TABLE IF NOT EXISTS galeria(
-                    id INTEGER PRIMARY KEY,
-                    path_img TEXT
+                    id_img INTEGER PRIMARY KEY,
+                    path_img TEXT,
+                    name_img TEXT
             );';
             
             $pdo->exec($query);

@@ -3,6 +3,7 @@
 <body>
     <main>
         <section>
+
             <h1> Galeria </h1>
 
             <div>
@@ -10,8 +11,14 @@
                     <input type="file" name="img">
                     <button type="submit"> Salvar </button>
                 </form>
-
             </div>
+
+            <div>
+                <?php foreach ($photos as $p): ?>
+                <img src="../../../src/public/img/<?php echo $p['name_img']?>" alt="teste" width=" 10%" height="10%" />
+                <?php endforeach ?>
+            </div>
+ 
         </section>
     </main>
 </body>
