@@ -28,7 +28,7 @@ class Route
         }
 
         if ($path == '/galeria') {
-            PhotoController::galeria();
+            PhotoController::gallery();
         }
 
         if ($path == '/salvar-foto') {

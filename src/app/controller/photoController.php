@@ -13,14 +13,14 @@ class PhotoController
     }
 
 
-    public static function galeria():void
+    public static function gallery():void
     {
 
         $photoDAO = new PhotoDAO();
         
-        $photos = $photoDAO->findPathImg();
+        $photos = $photoDAO->findPhotos();
 
-        require __DIR__ . '../../../public/view/body/galeria.php';
+        require __DIR__ . '../../../public/view/body/gallery.php';
 
     }
 
@@ -28,16 +28,19 @@ class PhotoController
     public static function savePhoto():void
     {
 
-        $name = $_FILES['img']['name'];
         $dir = $_ENV['DIR_IMG'];
+        $name = $_FILES['img']['name'];
         $file = $dir . $name;
+        $idUser =  $_SESSION['id_user'];
+        $nameTemp = $_FILES['img']['tmp_name'];
 
-        $photo = new Photo(null, $file, $name);
+        $photo = new Photo(null, $file, $name, $idUser);
 
         $photoDAO = new PhotoDAO();
-        $photoDAO->savePathImg($photo);
 
-        move_uploaded_file($_FILES['img']['tmp_name'], $file); 
+        $photoDAO->createPhoto($photo);
+
+        move_uploaded_file($nameTemp, $file); 
         
     }
 
@@ -48,13 +51,12 @@ class PhotoController
         $id = $_GET['id'];
 
         $photoDAO = new PhotoDAO();
-        $p = $photoDAO->findPathImgById($id);
+        
+        $photo = $photoDAO->findPhotoById($id);
 
-        $photo = new Photo($p["id_img"], $p["path_img"], $p["name_img"]);
-
-        $photoDAO->deletePathImg($photo);
-
-        unlink($photo->getPath());
+        $photoDAO->deletePhotoById($id);
+  
+        unlink($photo['path_photo']);
 
     }
 

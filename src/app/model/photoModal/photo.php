@@ -8,12 +8,14 @@ class Photo
     private $id;
     private $path;
     private $name;
+    private $idUser;
 
-    public function __construct($id, $path, $name)
+    public function __construct($id, $path, $name, $idUser)
     {
         $this->id = $id;
         $this->path = $path;
         $this->name = $name;
+        $this->idUser = $idUser;
     }
 
 
@@ -51,6 +53,19 @@ class Photo
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+    
+
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+ 
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
 
         return $this;
     }

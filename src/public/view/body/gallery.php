@@ -21,8 +21,8 @@
 
             <div>
                 <?php foreach ($photos as $p): ?>
-                <img src="../../../src/public/img/<?php echo $p['name_img'] ?>" alt="teste" width=" 10%" height="10%" />
-                <a href="deletar-foto?id=<?php echo $p['id_img'] ?>"> deletar </a>
+                <img src="../../../src/public/img/<?php echo $p['name_photo'] ?>" alt="teste" width=" 10%" height="10%" />
+                <a href="deletar-foto?id=<?php echo $p['id_photo'] ?>"> deletar </a>
                 <?php endforeach ?>
             </div>
  

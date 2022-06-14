@@ -19,7 +19,7 @@ class UserDAO
     {
         try {
             
-            $insertQuery = "INSERT INTO login (email_login, pass_login) VALUES (?, ?)";
+            $insertQuery = "INSERT INTO user (email_user, pass_user) VALUES (?, ?)";
 
             $stmt = $this->conn->prepare($insertQuery);
             
@@ -38,7 +38,7 @@ class UserDAO
     {
         try {
             
-            $selectQuery = "SELECT * FROM login WHERE email_login = ?";
+            $selectQuery = "SELECT * FROM user WHERE email_user = ?";
 
             $stmt = $this->conn->prepare($selectQuery);
 
@@ -48,9 +48,9 @@ class UserDAO
 
             $dataUser = $stmt->fetch();
  
-            if (password_verify($user->getPass(), $dataUser['pass_login'])) {
+            if (password_verify($user->getPass(), $dataUser['pass_user'])) {
 
-                return $dataUser['id_login'];
+                return $dataUser['id_user'];
 
             } else {
 

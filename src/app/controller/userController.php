@@ -46,10 +46,10 @@ class UserController
 
         if ($idUser != 0) {
             
-            $_SESSION['liberado'] = true;
-            $_SESSION['id_usuario'] = $idUser;
+            $_SESSION['released'] = true;
+            $_SESSION['id_user'] = $idUser;
             
-            header('Location: /galeria');
+            header('Location: /gallery');
         }
 
     }
