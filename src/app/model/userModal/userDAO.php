@@ -33,4 +33,33 @@ class UserDAO
         }
     }
 
+
+    public function findUser(User $user):int
+    {
+        try {
+            
+            $selectQuery = "SELECT * FROM login WHERE email_login = ?";
+
+            $stmt = $this->conn->prepare($selectQuery);
+
+            $stmt->bindParam(1, $user->getEmail());
+
+            $stmt->execute();
+
+            $dataUser = $stmt->fetch();
+ 
+            if (password_verify($user->getPass(), $dataUser['pass_login'])) {
+
+                return $dataUser['id_login'];
+
+            } else {
+
+                return 0;
+            }
+
+        } catch (\Throwable $th) {
+            echo 'erro find-user';
+        }
+    }
+
 }

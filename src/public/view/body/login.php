@@ -5,7 +5,7 @@
         <section>
 
             <div>
-                <form action="" method="POST">
+                <form action="/logar" method="POST">
                     <input type="text" name="email" placeholder="E-mail">
                     <input type="text" name="pass" placeholder="Senha">
                     <button> Logar </button>

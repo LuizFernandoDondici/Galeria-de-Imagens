@@ -32,4 +32,26 @@ class UserController
 
     }
 
+
+    public static function loginto():void
+    {
+
+        $email = $_POST['email'];
+        $pass = $_POST['pass'];
+
+        $user = new User(null, $email, $pass);
+        $userDAO = new UserDAO();
+
+        $idUser = $userDAO->findUser($user);
+
+        if ($idUser != 0) {
+            
+            $_SESSION['liberado'] = true;
+            $_SESSION['id_usuario'] = $idUser;
+            
+            header('Location: /galeria');
+        }
+
+    }
+
 }

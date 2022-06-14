@@ -20,6 +20,10 @@ class Route
             UserController::saveUser();
         }
 
+        if ($path == '/logar') {
+            UserController::loginto();
+        }
+
         if ($path == '/galeria') {
             PhotoController::galeria();
         }
