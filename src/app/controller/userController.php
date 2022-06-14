@@ -54,4 +54,11 @@ class UserController
 
     }
 
+
+    public static function logout():void
+    {
+        session_destroy();
+        header('Location: /login');
+    }
+
 }

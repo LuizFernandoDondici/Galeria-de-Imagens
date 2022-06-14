@@ -7,6 +7,12 @@
             <h1> Galeria </h1>
 
             <div>
+                <nav>
+                    <a href="/deslogar"> deslogar </a>
+                </nav>
+            </div>
+
+            <div>
                 <form action="/salvar-foto" method="POST" enctype = "multipart/form-data" >
                     <input type="file" name="img">
                     <button type="submit"> Salvar </button>

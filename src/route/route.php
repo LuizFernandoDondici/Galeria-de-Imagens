@@ -23,6 +23,9 @@ class Route
         if ($path == '/logar') {
             UserController::loginto();
         }
+        if ($path == '/deslogar') {
+            UserController::logout();
+        }
 
         if ($path == '/galeria') {
             PhotoController::galeria();
