@@ -13,9 +13,9 @@
             </div>
 
             <div>
-                <form action="/salvar-foto" method="POST" enctype = "multipart/form-data" >
+                <form action="/salvar-foto" method="POST" enctype = "multipart/form-data" id="form=photo">
                     <input type="file" name="img">
-                    <button type="submit"> Salvar </button>
+                    <button type="submit" id="btn-save-photo"> Salvar </button>
                 </form>
             </div>
 
@@ -26,6 +26,9 @@
                 <?php endforeach ?>
             </div>
  
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+            <script src="../../../src/public/script/ajax/ajax-photo.js"></script>
+
         </section>
     </main>
 </body>
