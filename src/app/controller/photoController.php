@@ -43,12 +43,7 @@ class PhotoController
         move_uploaded_file($nameTemp, $file); 
 
         ob_clean();
-        header_remove();
-        echo json_encode(array(
-            'success' => 1
-        ));
-
-        exit;
+        header('Location: /galeria');
         
     }
 
