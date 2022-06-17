@@ -4,6 +4,7 @@ namespace Projeto\GaleriaDeFotos\App\Controller;
 
 use Projeto\GaleriaDeFotos\App\Model\UserModal\User;
 use Projeto\GaleriaDeFotos\App\Model\UserModal\UserDAO;
+use Projeto\GaleriaDeFotos\App\Model\UserModal\UserService;
 
 class UserController
 {
@@ -22,22 +23,70 @@ class UserController
     public static function saveUser():void
     {
 
-        $email = $_POST['email'];
-        $pass = $_POST['pass'];
+        $json = file_get_contents('php://input');
+        $data = json_decode($json);
+
+        $email = $data->email;
+        $pass = $data->pass;
 
         $user = new User(null, $email, $pass);
+        $userService = new UserService();
         $userDAO = new UserDAO();
 
-        $userDAO->createUser($user);
+        $validate = $userService->validadeUser($user);
 
+        if ($validate != '') {
+            
+            ob_clean();
+            echo json_encode(
+                array(
+                    'success' => 0,
+                    'msg' => $validate,
+                )
+            );
+
+            exit;
+
+        } else {
+
+            $verifyEmail = $userDAO->findUserByEmail($user);
+
+            if ($verifyEmail == 0 ) {
+                
+                $userDAO->createUser($user);
+
+                ob_clean();
+                header_remove(); 
+                echo json_encode(array(
+                    'success' => '1',
+                    'msg' => 'Cadastro realizado com sucesso'
+                ));
+
+                exit;
+
+            } else {
+
+                ob_clean();
+                header_remove(); 
+                echo json_encode(array(
+                    'success' => '0',
+                    'msg' => 'Cadastro já existe!'
+                ));
+
+                exit;
+            }
+        }
     }
 
 
     public static function loginto():void
     {
 
-        $email = $_POST['email'];
-        $pass = $_POST['pass'];
+        $json = file_get_contents('php://input');
+        $data = json_decode($json);
+
+        $email = $data->email;
+        $pass = $data->pass;
 
         $user = new User(null, $email, $pass);
         $userDAO = new UserDAO();
@@ -49,9 +98,25 @@ class UserController
             $_SESSION['released'] = true;
             $_SESSION['id_user'] = $idUser;
             
-            header('Location: /gallery');
-        }
+            ob_clean();
+            header_remove(); 
+            echo json_encode(array(
+                'success' => '1',
+            ));
 
+            exit;
+
+        } else {
+
+            ob_clean();
+            header_remove(); 
+            echo json_encode(array(
+                'success' => '0',
+                'msg' => 'Email ou Senha invalidos'
+            ));
+
+            exit;
+        }
     }
 
 

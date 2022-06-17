@@ -19,10 +19,9 @@ class UserDAO
     {
         try {
             
-            $insertQuery = "INSERT INTO user (email_user, pass_user) VALUES (?, ?)";
+            $insertQuery = 'INSERT INTO user (email_user, pass_user) VALUES (?, ?)';
 
             $stmt = $this->conn->prepare($insertQuery);
-            
             $stmt->bindParam(1, $user->getEmail());
             $stmt->bindParam(2, password_hash($user->getPass(), PASSWORD_ARGON2I));
 
@@ -38,27 +37,48 @@ class UserDAO
     {
         try {
             
-            $selectQuery = "SELECT * FROM user WHERE email_user = ?";
-
+            $selectQuery = 'SELECT * FROM user WHERE email_user = ?';
+            
             $stmt = $this->conn->prepare($selectQuery);
-
             $stmt->bindParam(1, $user->getEmail());
-
             $stmt->execute();
 
             $dataUser = $stmt->fetch();
- 
+
             if (password_verify($user->getPass(), $dataUser['pass_user'])) {
 
                 return $dataUser['id_user'];
+            } 
 
-            } else {
-
-                return 0;
-            }
-
+            return 0;
+            
         } catch (\Throwable $th) {
             echo 'erro find-user';
+        }
+    }
+
+
+    public function findUserByEmail(User $user):int
+    {
+        try {
+
+            $selectQuery = 'SELECT * FROM user WHERE email_user = ?';
+
+            $stmt = $this->conn->prepare($selectQuery);
+            $stmt->bindParam(1, $user->getEmail());
+            $stmt->execute();
+
+            $dataUser = $stmt->fetch();
+
+            if ($dataUser['email_user'] == $user->getEmail()) {
+                
+                return 1;
+            }
+            
+            return 0;
+    
+        } catch (\Throwable $th) {
+            echo 'erro find-user by email';
         }
     }
 
