@@ -4,6 +4,7 @@ namespace Projeto\GaleriaDeFotos\App\Controller;
 
 use Projeto\GaleriaDeFotos\App\Model\PhotoModal\Photo;
 use Projeto\GaleriaDeFotos\App\Model\PhotoModal\PhotoDAO;
+use Projeto\GaleriaDeFotos\App\Model\PhotoModal\PhotoService;
 
 class PhotoController
 {
@@ -35,16 +36,37 @@ class PhotoController
         $nameTemp = $_FILES['img']['tmp_name'];
 
         $photo = new Photo(null, $file, $name, $idUser);
-
+        $photoService = new PhotoService();
         $photoDAO = new PhotoDAO();
 
-        $photoDAO->createPhoto($photo);
+        $validate = $photoService->validadePhoto($photo);
 
-        move_uploaded_file($nameTemp, $file); 
+        if ($validate != '') {
+            
+            
+            echo json_encode(
+                array(
+                    'success' => 0,
+                    'msg' => $validate,
+                )
+            );
 
-        ob_clean();
-        header('Location: /galeria');
-        
+            exit;
+
+        } else {
+
+            $photoDAO->createPhoto($photo);
+
+            move_uploaded_file($nameTemp, $file); 
+
+            ob_clean();
+            header_remove(); 
+            echo json_encode(array(
+                'success' => '1',
+            ));
+
+            exit;
+        }        
     }
 
 
@@ -57,11 +79,10 @@ class PhotoController
         
         $photo = $photoDAO->findPhotoById($id);
 
-        $photoDAO->deletePhotoById($id);
-  
         unlink($photo['path_photo']);
 
-        ob_clean();
+        $photoDAO->deletePhotoById($id);
+
         header('Location: /galeria');
         
     }
