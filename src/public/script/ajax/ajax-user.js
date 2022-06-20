@@ -28,7 +28,7 @@ $('document').ready(function(){
             })
 
         }).done((e)=>{
-          $("#btn-loginto").html("Entrar");
+          $("#btn-loginto").html("Logar");
           
         }).fail((e)=>{
             window.alert('erro ajax');
