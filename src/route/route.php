@@ -10,7 +10,6 @@ class Route
 
     public function setRoute($path):void
     {
-
         if ($path == '/login' || $path == '' || $path == null) {
             ob_clean();
             UserController::login();
@@ -38,7 +37,16 @@ class Route
         if ($path == '/deletar-foto') {
             PhotoController::deletePhoto();
         }
+    }
 
+
+    public function validateRoute($path):bool
+    {
+        if($path === '/logar' || $path === '/salvar-acesso'){
+            return true;
+        }
+
+        return false;
     }
 
 }
