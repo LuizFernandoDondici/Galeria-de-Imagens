@@ -4,30 +4,28 @@
     <main>
         <section>
 
-            <h1> Galeria </h1>
-
-            <div>
-                <nav>
-                    <a href="/deslogar"> deslogar </a>
-                </nav>
+            <div class="menu">
+                <h1 class="title"> Galeria </h1>
+                <a href="/deslogar" class="logout" id="link-logout"> deslogar </a>
             </div>
 
             <div>
-                <form action="/salvar-foto" method="POST" enctype = "multipart/form-data" id="form-photo">
+                <form action="/salvar-foto" method="POST" enctype = "multipart/form-data" class="form-file" id="form-img">
                     <input type="file" name="img">
-                    <button type="submit" id="btn-save-photo"> Salvar </button>
+                    <button type="submit" class="btn btn-primary btn-sm" id="btn-save-img"> Salvar Arquivo </button>
                 </form>
             </div>
 
-            <div>
-                <?php foreach ($photos as $p): ?>
-                <img src="../../../src/public/img/<?php echo $p['name_photo'] ?>" alt="teste" width=" 10%" height="10%" />
-                <a href="deletar-foto?id=<?php echo $p['id_photo'] ?>"> deletar </a>
-                <?php endforeach ?>
+            <?php foreach ($photos as $p): ?>
+            <div class="container-img">  
+                <img src="../../../src/public/img/<?php echo $p['name_photo']?>" alt="imagem" class="img">
+                <a href="deletar-foto?id=<?php echo $p['id_photo']?>" class="delete-img"> deletar </a>
             </div>
+            <?php endforeach ?>
             
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-            <script src="../../../src/public/script/ajax/ajax-photo.js"></script>
+            <script src="../../../src/public/script/ajax/ajax-photo.js"></script> 
+            <script src="../../../src/public/script/zoom-img/zoom-img.js"></script>
 
         </section>
     </main>

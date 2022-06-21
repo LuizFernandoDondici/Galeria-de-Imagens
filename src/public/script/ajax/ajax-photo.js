@@ -1,9 +1,9 @@
 
 $('document').ready(function(){
-    $("#btn-save-photo").click(function(e){
+    $("#btn-save-img").click(function(e){
         e.preventDefault();
 
-        var form = $('#form-photo')[0];
+        var form = $('#form-img')[0];
         var data = new FormData(form);
 
         $.ajax({
@@ -17,7 +17,7 @@ $('document').ready(function(){
             cache: false,
 
             beforeSend : function(){
-                $("#btn-save-photo").html("...");
+                $("#btn-save-img").html("Carregando...");
             }, 
 
             success: ((e)=>{ 
@@ -29,7 +29,7 @@ $('document').ready(function(){
             })
 
         }).done((e)=>{
-            $("#btn-loginto").html("Salvar");
+            $("#btn-save-img").html("Salvar Arquivo");
 
         }).fail((e)=>{
             window.alert('erro ajax');
