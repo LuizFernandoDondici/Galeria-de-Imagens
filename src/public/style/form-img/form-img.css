@@ -34,7 +34,7 @@
 
 
 .form-file{
-    display: inline-block;
+    display: block;
     margin: 90px 0 30px 0;
 }
 
@@ -84,7 +84,8 @@
 
 #alert-img{
     display: none;
-    margin: 0 0 0 30px;
+    margin: -70px 0 0 500px;
     padding: 6px 0 6px 12px;
-    width: 30%;
+    position: fixed;
+    width: 444px;
 }
