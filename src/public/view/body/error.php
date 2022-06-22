@@ -2,14 +2,15 @@
 
 <body>
     <main>
-        <header>
-            
-        <div class="menu">
-            <h1 class="title"><a href="galeria"> Galeria </a></h1>
-            <a href="/deslogar" class="logout" id="link-logout"> deslogar </a>
-        </div>
+        <header>  
+
+            <div class="menu">
+                <h1 class="title"><a href="galeria"> Galeria </a></h1>
+                <a href="/deslogar" class="logout" id="link-logout"> deslogar </a>
+            </div>
 
         </header>
+
         <Section>
 
             <Span class="cod-404"> 404 </Span>

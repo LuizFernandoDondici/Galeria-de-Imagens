@@ -2,14 +2,18 @@
 
 <body>
     <main>
-        <section>
+        <header>
 
             <div class="menu">
                 <h1 class="title"> Galeria </h1>
                 <a href="/deslogar" class="logout" id="link-logout"> deslogar </a>
             </div>
 
-            <div class="form-file">
+        </header>
+
+        <section>
+
+            <div class="form-img">
                 <form action="/salvar-foto" method="POST" enctype = "multipart/form-data" id="form-img">
                     <input type="file" name="img">
                     <button type="submit" class="btn btn-primary btn-sm" id="btn-save-img"> Salvar Arquivo </button>
@@ -17,7 +21,8 @@
             </div>
 
             <div id="alert-img">
-                <span></span>
+                <span>
+                </span>
             </div>
 
             <?php foreach ($photos as $p): ?>
@@ -26,12 +31,13 @@
                 <a href="deletar-foto?id=<?php echo $p['id_photo']?>" class="delete-img"> deletar </a>
             </div>
             <?php endforeach ?>
-            
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-            <script src="../../../public/script/ajax/ajax-photo.js"></script> 
-            <script src="../../../public/script/zoom-img/zoom-img.js"></script>
 
         </section>
     </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="../../../public/script/ajax/ajax-photo.js"></script> 
+    <script src="../../../public/script/zoom-img/zoom-img.js"></script>
+    
 </body>
 </html>

@@ -20,12 +20,10 @@
             <div class="form-login" id="form-save-user">
                 <form action="/salvar-acesso" method="POST">
                     <div>
-                        <input type="text" name="email" class="form-control" id="email-save-user" placeholder="E-mail">
-                        <small class="form-text text-muted" > exemplo@dominio.com.br </small>
+                        <input type="text" name="email" class="form-control" id="email-save-user" placeholder="nome@dominio.com.br">
                     </div>
                     <div>
-                        <input type="password" name="pass" class="form-control" id="pass-save-user" placeholder="Senha">
-                        <small class="form-text text-muted"> senha deve ter 4 digitos </small>
+                        <input type="password" name="pass" class="form-control" id="pass-save-user" placeholder="senha de 4 digitos">
                     </div>
                     <button type="submit" class="btn btn-primary" id="btn-save-user"> Cadastrar </button>
                     <span class="form-text" id="change-to-logar"> Logar? </span>
@@ -33,14 +31,16 @@
             </div>
 
             <div id="alert-login">
-                <span></span>
+                <span>
+                </span>
             </div>
-
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-            <script src="../../../public/script/ajax/ajax-user.js"></script>
-            <script src="../../../public/script/change-login/change-login.js"></script>
  
         </section>
     </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="../../../public/script/ajax/ajax-user.js"></script>
+    <script src="../../../public/script/change-login/change-login.js"></script>
+
 </body>
 </html>
