@@ -2,6 +2,7 @@
 
 namespace Projeto\GaleriaDeFotos\Route;
 
+use Projeto\GaleriaDeFotos\App\Controller\ErrorController;
 use Projeto\GaleriaDeFotos\App\Controller\PhotoController;
 use Projeto\GaleriaDeFotos\App\Controller\UserController;
 
@@ -36,6 +37,10 @@ class Route
 
         if ($path == '/deletar-foto') {
             PhotoController::deletePhoto();
+        }
+
+        if ($path == '/erro') {
+            ErrorController::error();
         }
     }
 

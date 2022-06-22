@@ -30,7 +30,7 @@ class PhotoDAO
             return $stmt->execute();
 
         } catch (\Throwable $th) {
-            echo 'erro insert';
+            header('Location: /erro');
         }
     }
 
@@ -52,7 +52,7 @@ class PhotoDAO
             return $listPhotos;
 
         } catch (\Throwable $th) {
-            echo 'erro select';
+            header('Location: /erro');
         }
     }
 
@@ -74,7 +74,7 @@ class PhotoDAO
             return $photo;
 
         } catch (\Throwable $th) {
-            echo 'erro select';
+            header('Location: /erro');
         }
     }
 
@@ -91,7 +91,7 @@ class PhotoDAO
             return $stmt->execute();
 
         } catch (\Throwable $th) {
-            echo 'erro delete';
+            header('Location: /erro');
         }
     }
 

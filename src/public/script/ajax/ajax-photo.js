@@ -34,7 +34,7 @@ $('document').ready(function(){
             $("#btn-save-img").html("Salvar Arquivo");
 
         }).fail((e)=>{
-            window.alert('erro ajax');
+            window.location.href = "/erro";
         })
     })
 })    

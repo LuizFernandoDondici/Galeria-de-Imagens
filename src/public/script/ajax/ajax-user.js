@@ -33,7 +33,7 @@ $('document').ready(function(){
           $("#btn-loginto").html("Logar");
           
         }).fail((e)=>{
-            window.alert('erro ajax');
+            window.location.href = "/erro";
         })
     })
 })
@@ -75,7 +75,7 @@ $('document').ready(function(){
           $("#btn-save-user").html("Cadastrar");
 
         }).fail((e)=>{
-            window.alert('erro ajax');
+            window.location.href = "/erro";
         })
     })
 })

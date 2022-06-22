@@ -28,7 +28,7 @@ class UserDAO
             return $stmt->execute();
 
         } catch (\Throwable $th) {
-            echo 'erro save-user';
+            header('Location: /erro');
         }
     }
 
@@ -53,7 +53,7 @@ class UserDAO
             return 0;
             
         } catch (\Throwable $th) {
-            echo 'erro find-user';
+            header('Location: /erro');
         }
     }
 
@@ -78,7 +78,7 @@ class UserDAO
             return 0;
     
         } catch (\Throwable $th) {
-            echo 'erro find-user by email';
+            header('Location: /erro');
         }
     }
 
