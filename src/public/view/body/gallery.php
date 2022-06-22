@@ -22,14 +22,14 @@
 
             <?php foreach ($photos as $p): ?>
             <div class="container-img">  
-                <img src="../../../src/public/img/<?php echo $p['name_photo']?>" alt="imagem" class="img">
+                <img src="../../../storage/<?php echo $p['name_photo']?>" alt="imagem" class="img">
                 <a href="deletar-foto?id=<?php echo $p['id_photo']?>" class="delete-img"> deletar </a>
             </div>
             <?php endforeach ?>
             
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-            <script src="../../../src/public/script/ajax/ajax-photo.js"></script> 
-            <script src="../../../src/public/script/zoom-img/zoom-img.js"></script>
+            <script src="../../../public/script/ajax/ajax-photo.js"></script> 
+            <script src="../../../public/script/zoom-img/zoom-img.js"></script>
 
         </section>
     </main>

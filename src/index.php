@@ -1,13 +1,9 @@
 <?php
 
-require __DIR__ . '../vendor/autoload.php';
+require __DIR__ . '../../vendor/autoload.php';
+require __DIR__ . '../../env.php';
 
 use Projeto\GaleriaDeFotos\Route\Route;
-
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
 
 if (isset($_SESSION)) {
     session_destroy();

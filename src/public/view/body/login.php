@@ -37,8 +37,8 @@
             </div>
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-            <script src="../../../src/public/script/ajax/ajax-user.js"></script>
-            <script src="../../../src/public/script/change-login/change-login.js"></script>
+            <script src="../../../public/script/ajax/ajax-user.js"></script>
+            <script src="../../../public/script/change-login/change-login.js"></script>
  
         </section>
     </main>
