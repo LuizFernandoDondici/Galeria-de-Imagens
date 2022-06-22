@@ -1,9 +1,4 @@
 
-body {
-    background-color: whitesmoke;
-    margin: auto;
-}
-
 .form-login{
     background-color: white;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -35,12 +30,4 @@ body {
     color: steelblue;
     margin: 3% 0 0 0;
     cursor: pointer;
-}
-
-#alert-login{
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    display: none;
-    margin: 1% auto 0 auto;
-    text-align: center;
-    width: 30%;
 }

@@ -1,0 +1,33 @@
+
+.menu{
+    background-color: blue;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.11);
+    padding: 1%;
+    position: fixed;
+    top:0;
+    width: 100%;
+}
+
+.title{
+    color: white;
+    display: inline;
+    margin: 20px;
+}
+
+.title a{
+    color: white;
+    text-decoration: none;
+}
+
+.logout{
+    color: white;
+    display: inline;
+    float: right;
+    margin: 10px 40px 0 0;
+    text-decoration: none;
+}
+
+.logout:hover{
+    color: white;
+    text-decoration: none;
+}
