@@ -24,7 +24,9 @@ $('document').ready(function(){
                 if(e.success == 1){
                     window.location.href = "/galeria";     
                 } else if (e.success == 0){
-                    window.alert(e.msg);
+                    $("#alert-img").css('display', 'inline-block').fadeOut(5000);
+                    $("#alert-img").addClass('alert alert-danger');
+                    $("#alert-img span").html(e.msg);
                 }
             })
 

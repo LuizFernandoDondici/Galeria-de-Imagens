@@ -23,7 +23,9 @@ $('document').ready(function(){
                 if(e.success == 1){
                     window.location.href = "/galeria";     
                 } else if (e.success == 0){
-                    window.alert(e.msg);
+                    $("#alert-login").css('display', 'block').fadeOut(5000);
+                    $("#alert-login").addClass('alert alert-danger');
+                    $("#alert-login span").html(e.msg);
                 }
             })
 
@@ -59,9 +61,13 @@ $('document').ready(function(){
 
             success: ((e)=>{
                 if(e.success == 1){
-                    window.alert(e.msg);    
+                    $("#alert-login").css('display', 'block').fadeOut(5000);
+                    $("#alert-login").addClass('alert alert-success');
+                    $("#alert-login span").html(e.msg);  
                 } else if (e.success == 0){
-                    window.alert(e.msg);
+                    $("#alert-login").css('display', 'block').fadeOut(5000);
+                    $("#alert-login").addClass('alert alert-warning');
+                    $("#alert-login span").html(e.msg);
                 }
             })
 

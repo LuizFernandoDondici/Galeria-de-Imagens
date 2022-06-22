@@ -32,6 +32,10 @@
                 </form>
             </div>
 
+            <div id="alert-login">
+                <span></span>
+            </div>
+
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
             <script src="../../../src/public/script/ajax/ajax-user.js"></script>
             <script src="../../../src/public/script/change-login/change-login.js"></script>

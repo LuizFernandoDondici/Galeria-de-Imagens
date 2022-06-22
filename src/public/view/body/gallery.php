@@ -9,11 +9,15 @@
                 <a href="/deslogar" class="logout" id="link-logout"> deslogar </a>
             </div>
 
-            <div>
-                <form action="/salvar-foto" method="POST" enctype = "multipart/form-data" class="form-file" id="form-img">
+            <div class="form-file">
+                <form action="/salvar-foto" method="POST" enctype = "multipart/form-data" id="form-img">
                     <input type="file" name="img">
                     <button type="submit" class="btn btn-primary btn-sm" id="btn-save-img"> Salvar Arquivo </button>
                 </form>
+            </div>
+
+            <div id="alert-img">
+                <span></span>
             </div>
 
             <?php foreach ($photos as $p): ?>
