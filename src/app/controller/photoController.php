@@ -31,9 +31,14 @@ class PhotoController
 
         $dir = $_ENV['DIR_IMG'];
         $file = $_ENV['FILE'];
+        
         $idUser =  $_SESSION['id_user'];
+        
         $nameTemp = $_FILES['img']['tmp_name'];
-        $name = $_FILES['img']['name'];
+
+        $ext = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
+        $name = md5(uniqid(time())) .'.'. $ext;
+        
         $path = $dir . $name;
         
         $photo = new Photo(null, $path, $name, $idUser);
