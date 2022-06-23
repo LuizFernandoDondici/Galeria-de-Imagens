@@ -12,6 +12,11 @@ class PhotoService
     
     public function validadePhoto(Photo $photo):string
     {
+
+        if (empty($photo->getName())) {
+            return 'Nenhum arquivo encontrado';
+        }
+
         
         $ext = pathinfo($photo->getPath(), PATHINFO_EXTENSION);
 

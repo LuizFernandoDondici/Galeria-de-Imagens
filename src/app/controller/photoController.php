@@ -31,11 +31,11 @@ class PhotoController
 
         $dir = $_ENV['DIR_IMG'];
         $name = $_FILES['img']['name'];
-        $file = $dir . $name;
+        $path = $dir . $name;
         $idUser =  $_SESSION['id_user'];
         $nameTemp = $_FILES['img']['tmp_name'];
 
-        $photo = new Photo(null, $file, $name, $idUser);
+        $photo = new Photo(null, $path, $name, $idUser);
         $photoService = new PhotoService();
         $photoDAO = new PhotoDAO();
 
@@ -57,7 +57,7 @@ class PhotoController
 
             $photoDAO->createPhoto($photo);
 
-            move_uploaded_file($nameTemp, $file); 
+            move_uploaded_file($nameTemp, $path); 
 
             ob_clean();
             header_remove(); 

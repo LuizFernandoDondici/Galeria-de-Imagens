@@ -12,7 +12,11 @@ class UserService
     
     public function validadeUser(User $user):string
     {
-        
+
+        if (empty($user->getEmail())) {
+            return "Preencha o campo e-mail";
+        }
+
         if (strlen($user->getEmail()) > 50) {
             return 'O e-mail deve ter no maximo 50 caracteres';
         }
@@ -21,12 +25,16 @@ class UserService
             return 'O e-mail nao deve conter espaços';
         }
 
+        if (empty($user->getPass())) {
+            return "Preencha o campo senha";
+        }
+
         if (!preg_match('/^[a-z0-9._-]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i', $user->getEmail())) {
             return 'E-mail invalido ';
         }
 
-        if (strlen($user->getPass()) < 4 || strlen($user->getPass()) > 8) {
-            return 'A senha deve ter entre 4 e 8 caracteres';
+        if (strlen($user->getPass()) != 4) {
+            return 'A senha deve ter 4 digitoss';
         }
 
         if (preg_match('/\s/', $user->getPass())) {
