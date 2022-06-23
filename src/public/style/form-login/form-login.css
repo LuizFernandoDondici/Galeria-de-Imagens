@@ -1,11 +1,8 @@
 
 .form-login{
-    background-color: white;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     margin: 10% auto 0 auto;
-    padding: 2% 4% 2% 4%;
     text-align: center;
-    width: 30%;
+    width: 400px;
 }
 
 #form-logito{
@@ -17,17 +14,16 @@
 }
 
 .form-login input{
-    margin: 4% 0 0 0;
+    margin: 20px 0 0 0;
     text-align: center;
 }
 
 .form-login button{
-    margin: 6% 0 0 0;
+    margin: 20px 0 0 0;
     width: 100%;
 }
 
 .form-login span{
-    color: steelblue;
-    margin: 3% 0 0 0;
-    cursor: pointer;
+    margin: 10px 0 0 0;
+    width: 100%;
 }

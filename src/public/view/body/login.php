@@ -12,8 +12,8 @@
                     <div>
                         <input type="password" name="pass" class="form-control" id="pass-loginto" placeholder="Senha">
                     </div>
-                    <button type="submit" class="btn btn-primary" id="btn-loginto"> Logar </button>
-                    <span class="form-text" id="change-to-cadastrar"> Cadastrar? </span>
+                    <button type="submit" class="btn btn-outline-primary" id="btn-loginto"> Logar </button>
+                    <span class="btn btn-link" id="change-to-cadastrar"> Cadastrar? </span>
                 </form>
             </div>
 
@@ -25,8 +25,8 @@
                     <div>
                         <input type="password" name="pass" class="form-control" id="pass-save-user" placeholder="senha de 4 digitos">
                     </div>
-                    <button type="submit" class="btn btn-primary" id="btn-save-user"> Cadastrar </button>
-                    <span class="form-text" id="change-to-logar"> Logar? </span>
+                    <button type="submit" class="btn btn-outline-primary" id="btn-save-user"> Cadastrar </button>
+                    <span class="btn btn-link" id="change-to-logar"> Logar? </span>
                 </form>
             </div>
 
