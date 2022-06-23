@@ -30,11 +30,12 @@ class PhotoController
     {
 
         $dir = $_ENV['DIR_IMG'];
-        $name = $_FILES['img']['name'];
-        $path = $dir . $name;
+        $file = $_ENV['FILE'];
         $idUser =  $_SESSION['id_user'];
         $nameTemp = $_FILES['img']['tmp_name'];
-
+        $name = $_FILES['img']['name'];
+        $path = $dir . $name;
+        
         $photo = new Photo(null, $path, $name, $idUser);
         $photoService = new PhotoService();
         $photoDAO = new PhotoDAO();
@@ -42,7 +43,6 @@ class PhotoController
         $validate = $photoService->validadePhoto($photo);
 
         if ($validate != '') {
-            
             
             echo json_encode(
                 array(
@@ -56,6 +56,10 @@ class PhotoController
         } else {
 
             $photoDAO->createPhoto($photo);
+
+            if (!file_exists($file)) {
+                mkdir($file);
+            }
 
             move_uploaded_file($nameTemp, $path); 
 
