@@ -47,7 +47,7 @@ class Route
 
     public function validateRoute($path):bool
     {
-        if($path === '/logar' || $path === '/salvar-acesso'){
+        if($path === '/logar' || $path === '/salvar-acesso' || $path === '/erro'){
             return true;
         }
 
