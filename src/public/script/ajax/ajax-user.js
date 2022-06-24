@@ -24,6 +24,7 @@ $('document').ready(function(){
                     window.location.href = "/galeria";     
                 } else if (e.success == 0){
                     $("#alert-login").css('display', 'block').fadeOut(5000);
+                    $("#alert-login").removeClass();
                     $("#alert-login").addClass('alert alert-danger');
                     $("#alert-login span").html(e.msg);
                 }
@@ -62,10 +63,12 @@ $('document').ready(function(){
             success: ((e)=>{
                 if(e.success == 1){
                     $("#alert-login").css('display', 'block').fadeOut(5000);
+                    $("#alert-login").removeClass();
                     $("#alert-login").addClass('alert alert-success');
                     $("#alert-login span").html(e.msg);  
                 } else if (e.success == 0){
                     $("#alert-login").css('display', 'block').fadeOut(5000);
+                    $("#alert-login").removeClass();
                     $("#alert-login").addClass('alert alert-warning');
                     $("#alert-login span").html(e.msg);
                 }

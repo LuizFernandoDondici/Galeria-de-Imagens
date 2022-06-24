@@ -8,8 +8,9 @@
 
 #alert-img{
     display: none;
-    margin: -80px 0 0 440px;
+    margin: -155px 0 0 300px;
     padding: 6px 0 6px 12px;
     position: fixed;
-    width: 360px;
+    text-align: center;
+    width: 300px;
 }
