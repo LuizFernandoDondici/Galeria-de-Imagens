@@ -11,8 +11,10 @@ class Connect
     {
         try {
             
+            // Cria conexão com o Database 'galeria-fotos'.
             $pdo = new PDO('sqlite:' . __DIR__ . '../../database/galeria-fotos.sqlite');
 
+            // Cria tabela 'photo' caso ela não exista.
             $queryPhoto = 
                 'CREATE TABLE IF NOT EXISTS photo(
                     id_photo INTEGER PRIMARY KEY,
@@ -22,6 +24,7 @@ class Connect
                     FOREIGN KEY (id_user) REFERENCES login (id_user)
                 );';
 
+            // Cria tabela 'user' caso ela não exista.
             $queryUser = 
                 'CREATE TABLE IF NOT EXISTS user(
                     id_user INTEGER PRIMARY KEY,

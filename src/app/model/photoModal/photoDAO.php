@@ -11,6 +11,7 @@ class PhotoDAO
 
     public function __construct()
     {
+        // Cria conexão com o Database.
         $this->conn = Connect::createConnection();
     }
 
@@ -19,10 +20,11 @@ class PhotoDAO
     {
         try {
 
+            // Armazena foto.
+
             $insertQuery = 'INSERT INTO photo (path_photo, name_photo, id_user) VALUES (?, ?, ?)';
 
             $stmt = $this->conn->prepare($insertQuery);
-
             $stmt->bindParam(1, $photo->getPath());
             $stmt->bindParam(2, $photo->getName());
             $stmt->bindParam(3, $photo->getIdUser());
@@ -38,13 +40,13 @@ class PhotoDAO
     public function findPhotos():array
     {
         try {
+
+            // Busca todas as fotos por usuario.
             
             $selectQuery = 'SELECT * FROM photo WHERE id_user = ?';
 
             $stmt = $this->conn->prepare($selectQuery);
-
             $stmt->bindValue(1, intval($_SESSION['id_user']));
-
             $stmt->execute();
 
             $listPhotos = $stmt->fetchAll(); 
@@ -61,12 +63,12 @@ class PhotoDAO
     {
         try {
 
+            // Busca foto por id.
+
             $selectQuery = 'SELECT * FROM photo WHERE id_photo = ?';
 
             $stmt = $this->conn->prepare($selectQuery);
-
             $stmt->bindParam(1, $id);
-
             $stmt->execute();
 
             $photo = $stmt->fetch(); 
@@ -81,11 +83,12 @@ class PhotoDAO
     public function deletePhotoById($id):bool
     {
         try {
+
+            // Deleta foto por id.
             
             $deleteQuery = 'DELETE FROM photo WHERE id_photo = ?';
 
             $stmt = $this->conn->prepare($deleteQuery);
-
             $stmt->bindParam(1, $id);
 
             return $stmt->execute();

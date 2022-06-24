@@ -11,6 +11,7 @@ class Route
 
     public function setRoute($path):void
     {
+
         if ($path == '/login' || $path == '' || $path == null) {
             ob_clean();
             UserController::login();
@@ -47,6 +48,8 @@ class Route
 
     public function validateRoute($path):bool
     {
+
+        // Valida rotas permitidas para acesso sem login de usuario.
         if($path === '/logar' || $path === '/salvar-acesso' || $path === '/erro'){
             return true;
         }

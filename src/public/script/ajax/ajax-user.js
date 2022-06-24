@@ -1,4 +1,5 @@
 
+// Ajax para login.
 $('document').ready(function(){
     $("#btn-loginto").click(function(e){
         e.preventDefault();
@@ -40,6 +41,7 @@ $('document').ready(function(){
 })
 
 
+// Ajax para salvar usuario.
 $('document').ready(function(){
     $("#btn-save-user").click(function(e){
         e.preventDefault();
@@ -82,3 +84,4 @@ $('document').ready(function(){
         })
     })
 })
+

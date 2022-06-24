@@ -21,8 +21,8 @@ class PhotoController
         
         $photos = $photoDAO->findPhotos();
 
+        // Renderiza para pagina '/galeria' com um array de fotos.
         require __DIR__ . '../../../public/view/body/gallery.php';
-
     }
 
 
@@ -36,10 +36,12 @@ class PhotoController
         
         $nameTemp = $_FILES['img']['tmp_name'];
 
+        // Identifica a extensão do arquivo.
         $ext = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
-        $name = md5(uniqid(time())) .'.'. $ext;
-        
-        $path = $dir . $name;
+        // Nomeia o arquivo com string numeral randomica concatenado com a extensão. 
+        $name = md5(uniqid(time())) .'.'. $ext; 
+        // Cria o caminho do arquivo concatenando o diretorio com o nome criado.
+        $path = $dir . $name; 
         
         $photo = new Photo(null, $path, $name, $idUser);
         $photoService = new PhotoService();
@@ -62,14 +64,19 @@ class PhotoController
 
             $photoDAO->createPhoto($photo);
 
+            // Cria pasta caso não exista.
             if (!file_exists($file)) {
                 mkdir($file);
             }
 
+            // Salva arquivo para pasta criada.
             move_uploaded_file($nameTemp, $path); 
 
+            // Apaga o Body.
             ob_clean();
+            // Remove o header.
             header_remove(); 
+            // Retorna Objeto JSON.
             echo json_encode(array(
                 'success' => '1',
             ));
@@ -88,12 +95,13 @@ class PhotoController
         
         $photo = $photoDAO->findPhotoById($id);
 
+        // Deleta imagem da pasta.
         unlink($photo['path_photo']);
 
         $photoDAO->deletePhotoById($id);
 
+        // Atualiza pagina.
         header('Location: /galeria');
-        
     }
 
 }

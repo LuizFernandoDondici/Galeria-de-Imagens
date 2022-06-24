@@ -27,7 +27,6 @@ class Photo
     public function setId($id)
     {
         $this->id = $id;
-
         return $this;
     }
 
@@ -40,7 +39,6 @@ class Photo
     public function setPath($path)
     {
         $this->path = $path;
-
         return $this;
     }
 
@@ -53,7 +51,6 @@ class Photo
     public function setName($name)
     {
         $this->name = $name;
-
         return $this;
     }
     
@@ -66,7 +63,6 @@ class Photo
     public function setIdUser($idUser)
     {
         $this->idUser = $idUser;
-
         return $this;
     }
     

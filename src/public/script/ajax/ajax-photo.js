@@ -1,4 +1,5 @@
 
+// Ajax para salvar imagem.
 $('document').ready(function(){
     $("#btn-save-img").click(function(e){
         e.preventDefault();
@@ -38,3 +39,4 @@ $('document').ready(function(){
         })
     })
 })    
+

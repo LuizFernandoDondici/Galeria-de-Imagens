@@ -16,6 +16,8 @@ class UserController
 
     public static function login():void
     {
+        
+        // Renderiza para pagina '/login'.
         require __DIR__ . '../../../public/view/body/login.php';
     }
 
@@ -23,7 +25,9 @@ class UserController
     public static function saveUser():void
     {
 
+        // Armazena dados recebidos em formato JSON.
         $json = file_get_contents('php://input');
+        // Transforma JSON em Array.
         $data = json_decode($json);
 
         $email = $data->email;
@@ -37,7 +41,11 @@ class UserController
 
         if ($validate != '') {
             
+            // Apaga o Body.
             ob_clean();
+            // Remove o header.
+            header_remove(); 
+            // Retorna Objeto JSON.
             echo json_encode(
                 array(
                     'success' => 0,
@@ -55,8 +63,11 @@ class UserController
                 
                 $userDAO->createUser($user);
 
+                // Apaga o Body.
                 ob_clean();
+                // Remove o header.
                 header_remove(); 
+                // Retorna Objeto JSON.
                 echo json_encode(array(
                     'success' => '1',
                     'msg' => 'Cadastro realizado com sucesso'
@@ -66,8 +77,11 @@ class UserController
 
             } else {
 
+                // Apaga o Body.
                 ob_clean();
+                // Remove o header.
                 header_remove(); 
+                // Retorna Objeto JSON.
                 echo json_encode(array(
                     'success' => '0',
                     'msg' => 'Cadastro já existe!'
@@ -82,7 +96,9 @@ class UserController
     public static function loginto():void
     {
 
+        // Armazena dados recebidos em formato JSON.
         $json = file_get_contents('php://input');
+        // Transforma JSON em Array.
         $data = json_decode($json);
 
         $email = $data->email;
@@ -98,8 +114,11 @@ class UserController
             $_SESSION['released'] = true;
             $_SESSION['id_user'] = $idUser;
             
+            // Apaga o Body.
             ob_clean();
+            // Remove o header.
             header_remove(); 
+            // Retorna Objeto JSON.
             echo json_encode(array(
                 'success' => '1',
             ));
@@ -108,8 +127,11 @@ class UserController
 
         } else {
 
+            // Apaga o Body.
             ob_clean();
+            // Remove o header.
             header_remove(); 
+            // Retorna Objeto JSON.
             echo json_encode(array(
                 'success' => '0',
                 'msg' => 'Email ou Senha invalidos'
@@ -122,7 +144,10 @@ class UserController
 
     public static function logout():void
     {
+
+        // Destroi Sessão.
         session_destroy();
+        // Renderiza para pagina '/login'.
         header('Location: /login');
     }
 

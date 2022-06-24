@@ -12,6 +12,8 @@ class ErrorController
 
     public static function error():void
     {
+        
+        // Renderiza para pagina '/erro'.
         require __DIR__ . '../../../public/view/body/error.php';
     }
 

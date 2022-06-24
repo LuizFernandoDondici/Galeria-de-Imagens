@@ -25,7 +25,6 @@ class User
     public function setId($id)
     {
         $this->id = $id;
-
         return $this;
     }
 
@@ -38,7 +37,6 @@ class User
     public function setEmail($email)
     {
         $this->email = $email;
-
         return $this;
     }
 
@@ -51,7 +49,6 @@ class User
     public function setPass($pass)
     {
         $this->pass = $pass;
-
         return $this;
     }
 
